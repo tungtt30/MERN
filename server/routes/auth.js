@@ -10,7 +10,6 @@ const User = require('../models/User')
 
 router.post('/register', async(req, res, next) => {
     const { username, password } = req.body
-    console.log(username, password)
 
     // simple validation 
     if (!username || !password)
@@ -57,11 +56,11 @@ router.post('/login', async(req, res) => {
         // Check for existing username
         const user = await User.findOne({ username: username })
         if (!user)
-            return res.status(400).json({ success: false, message: 'Incorrrect' })
+            return res.status(400).json({ success: false, message: 'Incorrrect username' })
                 // Username found
         const passwordValid = await argon2.verify(user.password, password)
         if (!passwordValid)
-            return res.status(400).json({ success: false, message: 'Incorrect' })
+            return res.status(400).json({ success: false, message: 'Incorrect password' })
 
 
         //All good

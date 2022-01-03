@@ -1,6 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
+
+
+
 const authRouter = require('./routes/auth')
+const postRouter = require('./routes/post')
+
+
+
+
 require('dotenv').config()
 
 
@@ -25,6 +33,7 @@ app.use(express.json())
 app.get('/', (req, res) => res.send('hello worlds'))
 
 app.use('/api/auth', authRouter)
+app.use('/api/posts', postRouter)
 
 const PORT = 5000
 
