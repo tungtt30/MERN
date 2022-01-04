@@ -3,9 +3,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQzMTllYmNhNmZiNzNlNDgyM2Y2ZWEiLCJpYXQiOjE2NDEyMjcxOTN9.NLO1VC65FazMJDy-G5hnBQj32b1oGOFe7BiWvGwpZjs
 
 {
-    "title": "C++",
-    "description": "UnrealEngine",
-    "url": "Ubi",
+    "title": "React",
+    "description": "React",
+    "url": "Facebook",
     "status": "LEARNED"
 }
 
@@ -31,7 +31,7 @@ Content-Type: application/json
 ### Get post data
 
 GET http://localhost:5000/api/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQzMTA5MjBhMmU4YTU3MWI1YWQ0YWMiLCJpYXQiOjE2NDEyMjcyOTJ9.GavYe9Y12mz21g0T65evZ7HDWo_Z7qd1g34yJsohbBs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQzMTllYmNhNmZiNzNlNDgyM2Y2ZWEiLCJpYXQiOjE2NDEyMjcxOTN9.NLO1VC65FazMJDy-G5hnBQj32b1oGOFe7BiWvGwpZjs
 
 ### GPUT
 
@@ -47,9 +47,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQzM
 }
 
 ### delete post
-DELETE http://localhost:5000/api/posts/61d31b7c8fc45de1120d9107
+DELETE http://localhost:5000/api/posts/61d32af60098cd5382fe6632
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQzMGU0YzBhMmU4YTU3MWI1YWQ0YTYiLCJpYXQiOjE2NDEyMjY3ODd9.r0zLZ7OyxNnQHjJPWWRQTN4vwRX3tSZKxAFYomjIFjM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQzMTllYmNhNmZiNzNlNDgyM2Y2ZWEiLCJpYXQiOjE2NDEyMjcxOTN9.NLO1VC65FazMJDy-G5hnBQj32b1oGOFe7BiWvGwpZjs
 
 {
     "title": "C==",
