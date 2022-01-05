@@ -11,22 +11,22 @@ const verifyToken = require('../middleware/auth')
 //@desc Check if user is login in
 //@access publish
 
-router.get('/', verifyToken, async(req, res) => {
+router.get('/', verifyToken, async (req, res) => {
     try {
-       const user = await User.findById(req.userId).select('-password')
-       if(!user) return res.status(400).json({success: false, message: 'user not found'})
-       res.json({success: true, message:'ok done!'})
+        const user = await User.findById(req.userId).select('-password')
+        if (!user) return res.status(400).json({ success: false, message: 'user not found' })
+        res.json({ success: true, message: 'ok done!' })
     } catch (error) {
         console.log(error)
-        res.status(500).json({success: false, message: 'Internal server error'})
+        res.status(500).json({ success: false, message: 'Internal server error' })
     }
-} )
+})
 
 // @route POST api/auth/register
 // @desc Register user 
 // @access public
 
-router.post('/register', async(req, res, next) => {
+router.post('/register', async (req, res, next) => {
     const { username, password } = req.body
 
     // simple validation 
@@ -61,7 +61,7 @@ router.post('/register', async(req, res, next) => {
 // @desc Login User
 // @access public
 
-router.post('/login', async(req, res) => {
+router.post('/login', async (req, res) => {
     const { username, password } = req.body
 
 
@@ -75,7 +75,7 @@ router.post('/login', async(req, res) => {
         const user = await User.findOne({ username: username })
         if (!user)
             return res.status(400).json({ success: false, message: 'Incorrrect username' })
-                // Username found
+        // Username found
         const passwordValid = await argon2.verify(user.password, password)
         if (!passwordValid)
             return res.status(400).json({ success: false, message: 'Incorrect password' })
