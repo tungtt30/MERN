@@ -52,13 +52,13 @@ const RegisterForm = () => {
                 <AlertMessage info={alert} />
 
                 <Form.Group>
-                    <Form.Control type='text' placeholder='Username' name='username' style={{ margin: '10px 0' }} value={username} onChange={onChangeRegisterForm} required />
+                    <Form.Control type='text' placeholder='Username' name='username' style={{ margin: '10px 0' }} value={username} onChange={onChangeRegisterForm} autoComplete="username" required />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Control type='password' placeholder='Password' name='password' style={{ margin: '10px 0' }} value={password} onChange={onChangeRegisterForm} required />
+                    <Form.Control type='password' placeholder='Password' name='password' style={{ margin: '10px 0' }} value={password} onChange={onChangeRegisterForm} autoComplete="new-password" required />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Control type='password' placeholder='Confirm Password' name='confirmPassword' style={{ margin: '10px 0' }} value={confirmPassword} onChange={onChangeRegisterForm} required />
+                    <Form.Control type='password' placeholder='Confirm Password' name='confirmPassword' style={{ margin: '10px 0' }} value={confirmPassword} onChange={onChangeRegisterForm} autoComplete="off" required />
                 </Form.Group>
                 <Button variant='success' type='submit'>Register</Button>
             </Form>

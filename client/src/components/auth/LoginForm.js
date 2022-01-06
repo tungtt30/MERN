@@ -45,10 +45,10 @@ const [alert, setAlert] = useState(null)
                 <AlertMessage info={alert} style={{ margin: '10px 0' }} />
 
                 <Form.Group>
-                    <Form.Control type='text' placeholder='Username' value={username} onChange={onChangeLoginForm} name='username' style={{ margin: '10px 0' }} required />
+                    <Form.Control type='text' placeholder='Username' value={username} onChange={onChangeLoginForm} name='username' style={{ margin: '10px 0' }} required autoComplete="username"/>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Control type='password' placeholder='Password' value={password} onChange={onChangeLoginForm} name='password' style={{ margin: '10px 0' }} required />
+                    <Form.Control type='password' placeholder='Password' value={password} onChange={onChangeLoginForm} name='password' style={{ margin: '10px 0' }} required autoComplete="current-password" />
                 </Form.Group>
                 <Button variant='success' type='submit'>Login</Button>
             </Form>

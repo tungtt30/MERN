@@ -4,15 +4,24 @@ import learnItlogo from '../../assets/logo.svg'
 import logoutIcon from '../../assets/logout.svg'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
-import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse'
+import { AuthContext } from '../../contexts/AuthContext'
+import { useContext } from 'react'
 
 
 
 
 
 const NavbarMenu = () => {
+
+    const { authState: { user: { username } }, logoutUser } = useContext(AuthContext)
+
+    const logout = () => {
+        logoutUser()
+    }
+
+
     return (
-        <Navbar expand='lg' bg='dark' variant='dark' className='shadow'>
+        <Navbar expand='lg' bg='black' variant='dark' className='shadow'>
             <Navbar.Brand className='font-weight-bolder text-white' >
                 <img
                     src={learnItlogo}
@@ -35,10 +44,10 @@ const NavbarMenu = () => {
                 </Nav>
             </Navbar.Collapse>
             <Nav>
-                <Nav.Link className='font-weight-bolder text-white' dissable>
-                    Welcome God
+                <Nav.Link className='font-weight-bolder text-white' disabled >
+                    Welcome {username}
                 </Nav.Link>
-                <Button variant='dark' className='font-weight-bolder border rounded'>
+                <Button variant='dark' className='font-weight-bolder text-white  rounded' onClick={logout}>
                     <img src={logoutIcon} alt="logout" width='25' height='25' className='mr-2' />
                     Logout
                 </Button>
