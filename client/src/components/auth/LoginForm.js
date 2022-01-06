@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { Link, useHistory } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { useState, useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import AlertMessage from '../layout/AlertMessage'
@@ -9,8 +9,7 @@ const LoginForm = () => {
     //context 
     const { loginUser } = useContext(AuthContext)
 
-    //router 
-    const history = useHistory()
+    
 
 
     //local state 

@@ -4,7 +4,10 @@ import Landing from './components/layout/Landing'
 import Auth from './views/Auth'
 import AuthContextProvider, { AuthContext } from './contexts/AuthContext'
 import Dashboard from './views/Dashboard'
+import About from './views/About'
 import ProtectedRoute from './components/routing/ProtectedRoute'
+
+
 
 function App() {
     return (
@@ -15,6 +18,7 @@ function App() {
                     <Route exact path='/login' render={props => <Auth {...props} authRoute='login' />} />
                     <Route exact path='/register' render={props => <Auth {...props} authRoute='register' />} />
                     <ProtectedRoute exact path='/dashboard' component={Dashboard} />
+                    <ProtectedRoute exact path='/about' component={About} />
                 </Switch>
             </Router>
         </AuthContextProvider>
