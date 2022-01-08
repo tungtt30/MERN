@@ -59,9 +59,9 @@ const Dashboard = () => {
 
                 {/* Add Post Modal */}
                 <OverlayTrigger placement='left' overlay={<Tooltip>Add new</Tooltip>}>
-                <Button className='btn-floating' onClick={setShowAddPostModal.bind(this, true)}>
-                    <img src={addIcon} alt='add-post' width='60' height='60' />
-                </Button>
+                    <Button className='btn-floating' onClick={setShowAddPostModal.bind(this, true)}>
+                        <img src={addIcon} alt='add-post' width='60' height='60' />
+                    </Button>
                 </OverlayTrigger>
 
             </>
