@@ -23,7 +23,7 @@ function App() {
                         <ProtectedRoute exact path='/dashboard' component={Dashboard} />
                     </Switch>
                 </Router>
-        </PostContextProvider>
+            </PostContextProvider>
         </AuthContextProvider>
     )
 }

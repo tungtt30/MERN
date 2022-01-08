@@ -1,11 +1,11 @@
 POST http://localhost:5000/api/posts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQzMTllYmNhNmZiNzNlNDgyM2Y2ZWEiLCJpYXQiOjE2NDEyMjcxOTN9.NLO1VC65FazMJDy-G5hnBQj32b1oGOFe7BiWvGwpZjs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQ2YTcxOTFhZWEwMmY4NGZjNjY0ODYiLCJpYXQiOjE2NDE2MjU1NTN9.idW3_TMlLpZfgTr8xkbI-__rTLMizmYAF-BvzqzV4BQ
 
 {
-    "title": "React",
-    "description": "React",
-    "url": "Facebook",
+    "title": "C#",
+    "description": ".Net",
+    "url": "oop",
     "status": "LEARNED"
 }
 
@@ -14,8 +14,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "tung36",
-    "password": "chip"
+    "username": "admin",
+    "password": "admin"
 }
 
 ### Create
