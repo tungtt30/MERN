@@ -25,7 +25,7 @@ const Dashboard = () => {
 
     const { postState: { post, posts, postsLoading }, getPosts, setShowAddPostModal, showToast: { show, message, type }, setShowToast } = useContext(PostContext)
 
-    useEffect(() => getPosts())
+    useEffect(() => getPosts(),[])
 
     let body = null
 
