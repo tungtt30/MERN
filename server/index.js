@@ -32,7 +32,9 @@ connectDB()
 const app = express()
 app.use(express.json())
 app.use(cors())
-app.get('/', (req, res) => res.send('hello worlds'))
+app.get('/', (req, res) => res.send(
+    'Welcome to GodSeeker Server, this only server, Click: https://stupefied-neumann-58622d.netlify.app    to visit app '
+    ))
 
 app.use('/api/auth', authRouter)
 app.use('/api/posts', postRouter)
