@@ -11,6 +11,8 @@ import AddPostModal from "../components/posts/AddPostModal"
 import addIcon from '../assets/plus-circle-fill.svg'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
+import Toast from 'react-bootstrap/Toast'
+import UpdatePostModal from '../components/posts/UpdatePostModal'
 
 
 
@@ -21,7 +23,7 @@ const Dashboard = () => {
 
     const { authState: { user: { username } } } = useContext(AuthContext)
 
-    const { postState: { posts, postsLoading }, getPosts, setShowAddPostModal } = useContext(PostContext)
+    const { postState: {post, posts, postsLoading }, getPosts, setShowAddPostModal, showToast: { show, message, type }, setShowToast } = useContext(PostContext)
 
     useEffect(() => getPosts(), [])
 
@@ -41,7 +43,7 @@ const Dashboard = () => {
                     <Card.Body>
                         <Card.Title>Welcome</Card.Title>
                         <Card.Text>Click button</Card.Text>
-                        <Button variant='primary'>Click</Button>
+                        <Button variant='primary' onClick={setShowAddPostModal.bind(this, true)}>Click</Button>
                     </Card.Body>
                 </Card>
             </>
@@ -71,6 +73,17 @@ const Dashboard = () => {
         <>
             {body}
             <AddPostModal />
+           {post !== null && <UpdatePostModal />}
+
+            {/* show toast */}
+            <Toast show={show} onClose={setShowToast.bind(this, { show: false, message: '', type: null })} style={{ position: 'fixed', top: '20%', right: '10%' }} className={`bg-${type} text-white`} delay={3000} autohide>
+                <Toast.Header>
+                    <h5>Add success</h5>
+                </Toast.Header>
+                <Toast.Body>
+                    <strong>{message}</strong>
+                </Toast.Body>
+            </Toast>
         </>
     )
 
