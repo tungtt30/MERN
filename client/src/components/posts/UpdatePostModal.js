@@ -1,7 +1,7 @@
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { PostContext } from '../../contexts/PostContext'
 
 
@@ -9,32 +9,35 @@ import { PostContext } from '../../contexts/PostContext'
 
 const UpdatePostModal = () => {
     //context
-    const { postState: { post }, showUpdatePostModal, setShowUpdatePostModal, updatePost, getPosts } = useContext(PostContext)
+    const { postState: { post }, setShowToast, showUpdatePostModal, setShowUpdatePostModal, updatePost } = useContext(PostContext)
 
     // State
     const [updatedPost, setUpdatedPost] = useState(post)
     const { title, description, url, status } = updatedPost
-    const onChangeUpdatedPostForm = event => setUpdatedPost({ ...updatedPost, [event.target.name]: event.target.value })
-    console.log(updatedPost)
 
-    // const closeDialog = () => {
-    //     resetAddPostData()
-    // }
+    useEffect(() => setUpdatedPost(post), [post])
+
+    const onChangeUpdatedPostForm = event => setUpdatedPost({ ...updatedPost, [event.target.name]: event.target.value })
+
+
+    const closeDialog = () => {
+        setUpdatedPost(post)
+        setShowUpdatePostModal(false)
+    }
     const onSubmit = async event => {
         event.preventDefault()
         const { success, message } = await updatePost(updatedPost)
-        // resetAddPostData()
-        // setShowToast({ show: true, message, type: success ? 'success' : 'danger' })
-        // getPosts()
+
+        setShowUpdatePostModal(false)
+
+        setShowToast({ show: true, message, type: success ? 'success' : 'danger' })
+
     }
-    // const resetAddPostData = () => {
-    //     setUpdatedPost({ title: '', description: '', url: '', status: 'TO LEARN' })
-    //     setShowAddPostModal(false)
-    // }
+
 
     return (
 
-        <Modal show={showUpdatePostModal}>
+        <Modal show={showUpdatePostModal} onHide={closeDialog}>
             <Modal.Header closeButton>
                 <Modal.Title>Changeee ??</Modal.Title>
             </Modal.Header>
@@ -59,7 +62,7 @@ const UpdatePostModal = () => {
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant='secondary'>Cancel</Button>
+                    <Button variant='secondary' onClick={closeDialog}>Cancel</Button>
                     <Button variant='primary' type='submit'>Go!!</Button>
                 </Modal.Footer>
             </Form>

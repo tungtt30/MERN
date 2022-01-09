@@ -28,7 +28,7 @@ const AddPostModal = () => {
         event.preventDefault()
         const { success, message } = await addPost(newPost)
         resetAddPostData()
-        setShowToast({show: true, message, type: success ? 'success' : 'danger'})
+        setShowToast({ show: true, message, type: success ? 'success' : 'danger' })
         getPosts()
     }
     const resetAddPostData = () => {
