@@ -6,6 +6,7 @@ const cors = require('cors')
 
 const authRouter = require('./routes/auth')
 const postRouter = require('./routes/post')
+const songRouter = require('./routes/song')
 
 
 
@@ -33,11 +34,12 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 app.get('/', (req, res) => res.send(
-    'Welcome to GodSeeker Server, this only server, Click: https://stupefied-neumann-58622d.netlify.app    to visit app '
+    '<h1>Welcome to GodSeeker Server, this only server, Follow https://stupefied-neumann-58622d.netlify.app to visit app </h1>'
     ))
 
 app.use('/api/auth', authRouter)
 app.use('/api/posts', postRouter)
+app.use('/api/song', songRouter)
 
 const PORT = process.env.PORT || 5000
 

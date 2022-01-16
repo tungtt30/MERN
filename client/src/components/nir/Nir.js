@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRef } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import appleseed from './thumb/appleseed.jpg'
@@ -10,13 +11,17 @@ import motbuocxaxoi from './thumb/motbuocxaxoi.jpg'
 import tabun from './thumb/tabun.jpg'
 import track from './thumb/track.jpg'
 import vogelimkafig from './thumb/vogelimkafig.jpg'
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+
+import tabunn from "./music/tabun.m4a"
 
 
 
 
 const Nir = () => {
 
-    const songs =  [
+    const songs = [
         {
             name: "Apple seed",
             singer: "Unknow",
@@ -72,29 +77,36 @@ const Nir = () => {
             image: track,
         },
     ]
+    const audioRef = useRef();
 
-   
-   
-   
-
-
-
+    const handleClick = () => {
+        audioRef.current.play()
+    }
+    
 
 
     return (
         <>
-            {songs.map(song => (
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={song.image} />
-                    <Card.Body>
-                        <Card.Title>{song.name}</Card.Title>
-                        <Card.Text>
-                            {song.singer}
-                        </Card.Text>
-                        <Button variant="primary">Play</Button>
-                    </Card.Body>
-                </Card>
-            ))}
+            <Row className="row-cols-1 row-cols-md-4 g-4 mx-auto mt-3">
+                {songs.map(song => (
+                    <Col className='my-2'>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={song.image} />
+                            <Card.Body>
+                                <Card.Title>{song.name}</Card.Title>
+                                <Card.Text>
+                                    {song.singer}
+                                </Card.Text>
+                                <audio
+                                    ref={audioRef}
+                                    src={tabunn}
+                                />
+                                <Button variant="primary" onClick={handleClick}>Play</Button>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
         </>
     )
 }

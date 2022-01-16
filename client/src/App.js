@@ -5,9 +5,9 @@ import Auth from './views/Auth'
 import AuthContextProvider from './contexts/AuthContext'
 import Dashboard from './views/Dashboard'
 import About from './views/About'
-import Nir from './views/Nir'
 import ProtectedRoute from './components/routing/ProtectedRoute'
 import PostContextProvider from './contexts/PostContext'
+import NirLayout from './components/nir/NirLayout'
 
 
 
@@ -20,7 +20,7 @@ function App() {
                         <Route exact path='/' component={Landing} />
                         <Route exact path='/login' render={props => <Auth {...props} authRoute='login' />} />
                         <Route exact path='/register' render={props => <Auth {...props} authRoute='register' />} />
-                        <ProtectedRoute exact path='/nir' component={Nir} />
+                        <ProtectedRoute exact path='/nir' component={NirLayout} />
                         <ProtectedRoute exact path='/about' component={About} />
                         <ProtectedRoute exact path='/dashboard' component={Dashboard} />
                     </Switch>
