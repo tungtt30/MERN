@@ -38,6 +38,9 @@ const NavbarMenu = () => {
                     <Nav.Link className='font-weight-bolder text-white' to='/dashboard' as={Link}>
                         Dashboard
                     </Nav.Link>
+                    <Nav.Link className='font-weight-bolder text-white' to='/nir' as={Link}>
+                        Mp3
+                    </Nav.Link>
                     <Nav.Link className='font-weight-bolder text-white' to='/about' as={Link}>
                         About
                     </Nav.Link>
