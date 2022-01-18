@@ -3,12 +3,7 @@
   background: url("./assets/landing.jpg") no-repeat center center/cover;
   height: 100vh;
 }
-.navbar {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  top:0
-}
+
 
 .dark-overlay {
   background-color: rgba(0, 0, 0, 0.5);

@@ -1,1 +1,0 @@
-import appleseed from './thumb/appleseed.jpg'
