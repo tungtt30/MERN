@@ -137,7 +137,7 @@ button.post-button.btn:active {
 
 .dashboard {
   padding: 10px;
-  background-color: #fff;
+  background-color: rgb(27, 26, 29);
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -147,7 +147,10 @@ button.post-button.btn:active {
   justify-content: space-between;
 }
 
-/* HEADER */
+/* NIR BACKGROUND */
+.dark-mode {
+  background-color: rgba(2, 0, 22, 0.863);
+}
 
 /* CD */
 .cd {
@@ -166,6 +169,12 @@ button.post-button.btn:active {
 }
 
 /* CONTROL */
+.nir-controller-singer {
+  color:#fff
+}
+.nir-controller-song {
+  color: #fff;
+}
 
 .control-father {
   display: flex;
@@ -183,7 +192,7 @@ button.post-button.btn:active {
 }
 
 .control .btn {
-  color: #666;
+  color: rgb(255, 255, 255);
   padding: 18px;
   font-size: 18px;
 }
@@ -207,7 +216,7 @@ button.post-button.btn:active {
   width: 100px;
   -webkit-appearance: none;
   height: 6px;
-  background: #a5a5a5;
+  background: #ffd7e8;
   outline: none;
   opacity: 1;
   -webkit-transition: 0.2s;
@@ -220,19 +229,15 @@ button.post-button.btn:active {
   appearance: none;
   width: 12px;
   height: 6px;
-  background-color: #0074b3;
+  background-color: #2a1831;
   cursor: pointer;
   border-radius: 4px;
 }
-.volume::-webkit-slider-thumb:hover {
-  background-color: #0074b3;
-}
+
 
 .progress {
   width: 300px;
-  -webkit-appearance: none;
   height: 6px;
-  background: #a5a5a5;
   outline: none;
   opacity: 0.7;
   -webkit-transition: 0.2s;
@@ -242,16 +247,12 @@ button.post-button.btn:active {
 
 .progress::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
   width: 12px;
   height: 6px;
-  background-color: var(--primary-color);
   cursor: pointer;
   border-radius: 4px;
 }
-.progress::-webkit-slider-thumb:hover {
-  background-color: #ff0062;
-}
+
 
 /* PLAYLIST */
 .playlist {
@@ -318,3 +319,15 @@ button.post-button.btn:active {
 }
 
 /* -------------*/
+
+.nir-container {
+  margin-bottom: 100px;
+}
+
+/* card */
+.card-image{
+ 
+  height: 100px;
+  object-fit: cover;
+  text-align: center;
+}

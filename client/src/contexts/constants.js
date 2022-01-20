@@ -1,5 +1,5 @@
 // export const apiUrl = process.env.NODE_ENV !== 'production' ? 'https://whispering-coast-98518.herokuapp.com/api' : 'https://whispering-coast-98518.herokuapp.com/api'
-export const apiUrl = process.env.NODE_ENV !== 'production' ? 'http://localhost:5000/api' : 'https://whispering-coast-98518.herokuapp.com/api'
+export const apiUrl = process.env.NODE_ENV !== 'production' ? 'https://whispering-coast-98518.herokuapp.com/api' : 'http://localhost:5000/api'
 
 export const LOCAL_STORAGE_TOKEN_NAME = 'learnit-mern'
 export const POSTS_LOADED_SUCCESS = 'POST_LOADED_SUCCESS'

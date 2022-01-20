@@ -1,44 +1,48 @@
-import React, { useState, useEffect } from 'react'
-import Nir from './Nir'
+import React, { createContext, useEffect, useRef, useState } from 'react'
+import NirController from './NirController'
+import NirContainer from './NirContainer'
 import axios from 'axios'
 import { apiUrl } from '../../contexts/constants'
-import Row from "react-bootstrap/Row"
-import NirController from './NirController'
 
+export const NirContext = createContext()
 
 const NirLayout = () => {
 
+    const audioRef = useRef()
     const [song, setSong] = useState([])
-
+    const [isPlaying, setPlaying] = useState(false)
+    const [currentSong, setCurrentSong] = useState({})
+    const [timer, setTimer] = useState(0)
+    const [volume, setVolume] = useState(85)
     const getSongs = async () => {
         const response = await axios.get(`${apiUrl}/song`)
         setSong(response.data.song)
-
-
     }
-
     useEffect(() => {
         getSongs()
-
     }, [])
 
+    const playSong = () => {
+        audioRef.current.play()
+        setPlaying(true)
+    }
+    const pauseSong = () => {
+        audioRef.current.pause()
+        setPlaying(false)
+    }
 
 
 
-    return (
-        <>
-            <Row className="row-cols-1 row-cols-md-5 mx-auto mt-3">
-                {song.map((song) => {
-                    return <Nir key={song._id} name={song.name} singer={song.singer} url={song.url} image={song.image} />
-                })}
-            </Row>
-            <NirController />
-        </>
-    )
+  
+        const nirContexData = { song, setSong, isPlaying, setPlaying, currentSong, setCurrentSong, timer, setTimer, volume, setVolume, playSong, pauseSong }
 
+        return (
+            <NirContext.Provider value={nirContexData}>
+                <NirContainer song={song} />
+                <NirController />
+                <audio ref={audioRef} src={currentSong.url} />
+            </NirContext.Provider>
+        )
+    }
 
-
-
-}
-
-export default NirLayout
+    export default NirLayout

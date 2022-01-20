@@ -1,27 +1,48 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useRef } from 'react'
+import { NirContext } from './NirLayout'
 
 const NirController = () => {
-   
-   
-   
-   
-   
-   
-   
-   
+
+
+    const { currentSong, isPlaying, timer, setTimer, volume, setVolume, playSong, pauseSong } = useContext(NirContext)
+    const progressRef = useRef()
+    const volumeRef = useRef()
+
+    console.log(timer, volume)
+
+    const handleInput = () => {
+        setVolume(volumeRef.current.value)
+    }
+
+    const handleChange = () => {
+        setTimer(progressRef.current.value)
+    }
+    const handleClick = () => {
+        if (isPlaying) {
+            pauseSong()
+        } else {
+            playSong()
+        }
+    }
+    console.log(currentSong, isPlaying)
+
+    var btnClassName = isPlaying ? 'fas fa-pause' : 'fas fa-play'
+
+
+
     return (
         <div>
-             <div className='dashboard'>
+            <div className='dashboard'>
                 <header>
-                    <h4>Now playing:</h4>
-                    <h2>String 57th  9th</h2>
+                    <h4 className='nir-controller-singer'>{currentSong.singer}</h4>
+                    <h2 className='nir-controller-song'>{currentSong.name}</h2>
                 </header>
-
                 <div className="cd">
-                    <div className="cd-thumb">
+                    <div className="cd-thumb" style={{ backgroundImage: `url(${currentSong.image})` }}>
+
                     </div>
                 </div>
-
                 <div className="control">
                     <div className="btn btn-repeat">
                         <i className="fas fa-redo"></i>
@@ -29,9 +50,8 @@ const NirController = () => {
                     <div className="btn btn-prev">
                         <i className="fas fa-step-backward"></i>
                     </div>
-                    <div className="btn btn-toggle-play">
-
-                     
+                    <div className="btn btn-toggle-play" onClick={handleClick}>
+                        <i className={btnClassName}></i>
 
                     </div>
                     <div className="btn btn-next">
@@ -41,11 +61,9 @@ const NirController = () => {
                         <i className="fas fa-random"></i>
                     </div>
                 </div>
-
                 <div>
-                    <input className="progress" type="range" />
-                    <input className="volume" type="range" />
-
+                    <input ref={progressRef} onChange={handleChange} className="progress" type="range" />
+                    <input ref={volumeRef} className="volume" onInput={handleInput} type="range" />
                 </div>
             </div>
         </div>
