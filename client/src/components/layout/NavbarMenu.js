@@ -14,7 +14,7 @@ import { useContext } from 'react'
 const NavbarMenu = () => {
 
     const { authState: { user: { username } }, logoutUser } = useContext(AuthContext)
-   
+
 
     const logout = () => {
         logoutUser()
@@ -22,7 +22,14 @@ const NavbarMenu = () => {
 
 
     return (
-        <Navbar expand='lg' bg='black' variant='dark' className='shadow navbar'>
+        <Navbar expand='lg' bg='black' variant='dark' className='shadow navbar' style={
+            {
+                position: 'fixed',
+                zIndex: '1',
+                width: '100%',
+                top: '0'
+            }
+        } >
             <Navbar.Brand className='font-weight-bolder text-white' >
                 <img
                     src={learnItlogo}
