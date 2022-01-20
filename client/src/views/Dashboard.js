@@ -51,7 +51,7 @@ const Dashboard = () => {
     } else {
         body = (
             <>
-                <Row className="row-cols-1 row-cols-md-3 g-4 mx-auto mt-3">
+                <Row className="row-cols-1 row-cols-md-3 g-4 mx-auto" style={{marginTop: '55px'}} >
                     {posts.map(post => (
                         <Col key={post._id} className='my-2'>
                             <SinglePost post={post} />
