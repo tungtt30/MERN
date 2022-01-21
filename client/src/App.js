@@ -8,6 +8,7 @@ import About from './views/About'
 import ProtectedRoute from './components/routing/ProtectedRoute'
 import PostContextProvider from './contexts/PostContext'
 import NirLayout from './components/nir/NirLayout'
+import NirUpload from './components/nir/NirUpload'
 
 
 
@@ -21,6 +22,7 @@ function App() {
                         <Route exact path='/login' render={props => <Auth {...props} authRoute='login' />} />
                         <Route exact path='/register' render={props => <Auth {...props} authRoute='register' />} />
                         <ProtectedRoute exact path='/nir' component={NirLayout} />
+                        <ProtectedRoute exact path='/upload' component={NirUpload} />
                         <ProtectedRoute exact path='/about' component={About} />
                         <ProtectedRoute exact path='/dashboard' component={Dashboard} />
                     </Switch>

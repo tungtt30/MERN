@@ -9,7 +9,7 @@ const NirController = () => {
     const progressRef = useRef()
     const volumeRef = useRef()
 
-    console.log(timer, volume)
+
 
     const handleInput = () => {
         setVolume(volumeRef.current.value)
@@ -25,7 +25,7 @@ const NirController = () => {
             playSong()
         }
     }
-    console.log(currentSong, isPlaying)
+
 
     var btnClassName = isPlaying ? 'fas fa-pause' : 'fas fa-play'
 

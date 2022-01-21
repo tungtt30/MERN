@@ -33,16 +33,16 @@ const NirLayout = () => {
 
 
 
-  
-        const nirContexData = { song, setSong, isPlaying, setPlaying, currentSong, setCurrentSong, timer, setTimer, volume, setVolume, playSong, pauseSong }
 
-        return (
-            <NirContext.Provider value={nirContexData}>
-                <NirContainer song={song} />
-                <NirController />
-                <audio ref={audioRef} src={currentSong.url} />
-            </NirContext.Provider>
-        )
-    }
+    const nirContexData = { song, setSong, isPlaying, setPlaying, currentSong, setCurrentSong, timer, setTimer, volume, setVolume, playSong, pauseSong }
 
-    export default NirLayout
+    return (
+        <NirContext.Provider value={nirContexData}>
+            <NirContainer song={song} />
+            <NirController />
+            <audio ref={audioRef} src={currentSong.url} />
+        </NirContext.Provider>
+    )
+}
+
+export default NirLayout

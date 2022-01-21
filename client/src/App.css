@@ -4,7 +4,6 @@
   height: 100vh;
 }
 
-
 .dark-overlay {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
@@ -149,7 +148,7 @@ button.post-button.btn:active {
 
 /* NIR BACKGROUND */
 .dark-mode {
-  background-color: rgba(2, 0, 22, 0.863);
+  background: rgba(2, 0, 22, 0.863);
 }
 
 /* CD */
@@ -170,7 +169,7 @@ button.post-button.btn:active {
 
 /* CONTROL */
 .nir-controller-singer {
-  color:#fff
+  color: #fff;
 }
 .nir-controller-song {
   color: #fff;
@@ -234,7 +233,6 @@ button.post-button.btn:active {
   border-radius: 4px;
 }
 
-
 .progress {
   width: 300px;
   height: 6px;
@@ -252,7 +250,6 @@ button.post-button.btn:active {
   cursor: pointer;
   border-radius: 4px;
 }
-
 
 /* PLAYLIST */
 .playlist {
@@ -326,9 +323,12 @@ button.post-button.btn:active {
 }
 
 /* card */
-.card-image{
- 
+.card-image {
   height: 100px;
   object-fit: cover;
   text-align: center;
+}
+
+.NirForm {
+  color: white;
 }
