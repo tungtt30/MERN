@@ -9,7 +9,7 @@ export const NirContext = createContext()
 const NirLayout = () => {
 
     const audioRef = useRef()
-    const [song, setSong] = useState([])
+    const [song, setSong] = useState([{}])
     const [isPlaying, setPlaying] = useState(false)
     const [currentSong, setCurrentSong] = useState({})
     const [timer, setTimer] = useState(0)
@@ -17,24 +17,27 @@ const NirLayout = () => {
     const getSongs = async () => {
         const response = await axios.get(`${apiUrl}/song`)
         setSong(response.data.song)
+        console.log(response.data.song)
     }
+
     useEffect(() => {
         getSongs()
     }, [])
 
-    const playSong = () => {
-        audioRef.current.play()
+    const playSong = async () => {
+        await audioRef.current.play()
         setPlaying(true)
     }
-    const pauseSong = () => {
-        audioRef.current.pause()
+    const pauseSong = async () => {
+        await audioRef.current.pause()
         setPlaying(false)
     }
 
 
 
 
-    const nirContexData = { song, setSong, isPlaying, setPlaying, currentSong, setCurrentSong, timer, setTimer, volume, setVolume, playSong, pauseSong }
+
+    const nirContexData = { audioRef, song, setSong, isPlaying, setPlaying, currentSong, setCurrentSong, timer, setTimer, volume, setVolume, playSong, pauseSong }
 
     return (
         <NirContext.Provider value={nirContexData}>

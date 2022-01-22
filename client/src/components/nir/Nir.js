@@ -1,17 +1,37 @@
-import React, { useContext } from 'react'
+import React, { useContext, memo } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Col from "react-bootstrap/Col"
 import { NirContext } from "./NirLayout"
+import Spinner from 'react-bootstrap/esm/Spinner'
 
 const Nir = (props) => {
 
-    const { setCurrentSong, playSong } = useContext(NirContext)
+    let btnSpinner = null
+    let btnText = 'Play'
 
-    const handleClick = () => {
-        playSong()
-        setCurrentSong(props)
+    console.log('nir re render')
+
+    const { setCurrentSong, playSong, currentSong, isPlaying } = useContext(NirContext)
+
+    const handleClick = async () => {
+        await setCurrentSong(props)
+        await playSong()
     }
+
+    if (currentSong.url === props.url && isPlaying) {
+        btnSpinner = (
+            <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+            />
+        )
+        btnText = ' Playing '
+    }
+
 
     return (
         <>
@@ -22,7 +42,10 @@ const Nir = (props) => {
                         <Card.Title>{props.name}</Card.Title>
                         <Card.Text>{props.singer}</Card.Text>
                     </Card.Body>
-                    <Button variant='danger' onClick={handleClick}>Play</Button>
+                    <Button variant='outline-danger' onClick={handleClick}>
+                        {btnSpinner}
+                        {btnText}
+                    </Button>
                 </Card>
             </Col>
 
@@ -30,4 +53,4 @@ const Nir = (props) => {
     )
 }
 
-export default Nir
+export default memo(Nir) 

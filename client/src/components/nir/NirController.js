@@ -1,18 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useRef } from 'react'
 import { NirContext } from './NirLayout'
 
 const NirController = () => {
 
 
-    const { currentSong, isPlaying, timer, setTimer, volume, setVolume, playSong, pauseSong } = useContext(NirContext)
+    const { audioRef, currentSong, isPlaying, timer, setTimer, volume, setVolume, playSong, pauseSong } = useContext(NirContext)
     const progressRef = useRef()
     const volumeRef = useRef()
+
+ 
 
 
 
     const handleInput = () => {
-        setVolume(volumeRef.current.value)
+        setVolume(volumeRef.current.value / 100)
     }
 
     const handleChange = () => {

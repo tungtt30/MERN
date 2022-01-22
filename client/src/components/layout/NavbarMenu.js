@@ -55,6 +55,9 @@ const NavbarMenu = () => {
                     <Nav.Link className='font-weight-bolder text-white' to='/about' as={Link}>
                         About
                     </Nav.Link>
+                    <Nav.Link className='font-weight-bolder text-white' to='/covid' as={Link}>
+                        Covid-19
+                    </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             <Nav>
