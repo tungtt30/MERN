@@ -27,7 +27,8 @@ const NavbarMenu = () => {
                 position: 'fixed',
                 zIndex: '1',
                 width: '100%',
-                top: '0'
+                top: '0',
+                padding: '8px 5px'
             }
         } >
             <Navbar.Brand className='font-weight-bolder text-white' >
@@ -42,7 +43,7 @@ const NavbarMenu = () => {
             </ Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav' >
-                <Nav className='me-auto' >
+                <Nav className='' >
                     <Nav.Link className='font-weight-bolder text-white' to='/dashboard' as={Link}>
                         Dashboard
                     </Nav.Link>

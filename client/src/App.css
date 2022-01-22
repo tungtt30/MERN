@@ -215,12 +215,12 @@ button.post-button.btn:active {
   width: 100px;
   -webkit-appearance: none;
   height: 6px;
-  background: #ffd7e8;
+  background: #ffffff;
   outline: none;
   opacity: 1;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
-  border-radius: 10px;
+  border-radius: 4px;
   margin-top: 10px;
 }
 .volume::-webkit-slider-thumb {
@@ -228,9 +228,9 @@ button.post-button.btn:active {
   appearance: none;
   width: 12px;
   height: 6px;
-  background-color: #2a1831;
+  background-color: #000000;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .progress {
@@ -240,15 +240,15 @@ button.post-button.btn:active {
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .progress::-webkit-slider-thumb {
-  -webkit-appearance: none;
   width: 12px;
   height: 6px;
+  background-color: #000000;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 /* PLAYLIST */

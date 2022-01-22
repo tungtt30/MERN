@@ -10,9 +10,9 @@ const Nir = (props) => {
     let btnSpinner = null
     let btnText = 'Play'
 
-    console.log('nir re render')
 
-    const { setCurrentSong, playSong, currentSong, isPlaying } = useContext(NirContext)
+
+    const {  setCurrentSong, playSong, currentSong, isPlaying } = useContext(NirContext)
 
     const handleClick = async () => {
         await setCurrentSong(props)
@@ -30,6 +30,17 @@ const Nir = (props) => {
             />
         )
         btnText = ' Playing '
+    } else if (currentSong.url === props.url && !isPlaying) {
+        btnSpinner = (
+            <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+            />
+        )
+        btnText = ''
     }
 
 

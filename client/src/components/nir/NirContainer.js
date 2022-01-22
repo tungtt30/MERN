@@ -27,7 +27,7 @@ const NirContainer = ({ song }) => {
     </div>)
   }
 
-  console.log('nir container re render')
+  // console.log('nir container re render')
 
 
 

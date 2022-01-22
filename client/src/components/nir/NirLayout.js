@@ -17,7 +17,7 @@ const NirLayout = () => {
     const getSongs = async () => {
         const response = await axios.get(`${apiUrl}/song`)
         setSong(response.data.song)
-        console.log(response.data.song)
+
     }
 
     useEffect(() => {
@@ -33,6 +33,13 @@ const NirLayout = () => {
         setPlaying(false)
     }
 
+    
+    const handleEnded = () => {
+        setPlaying(false)
+        setCurrentSong({})
+    }
+
+
 
 
 
@@ -43,7 +50,7 @@ const NirLayout = () => {
         <NirContext.Provider value={nirContexData}>
             <NirContainer song={song} />
             <NirController />
-            <audio ref={audioRef} src={currentSong.url} />
+            <audio ref={audioRef} onEnded={handleEnded} onTimeUpdate={() => setTimer(audioRef.current.currentTime)} src={currentSong.url} />
         </NirContext.Provider>
     )
 }
