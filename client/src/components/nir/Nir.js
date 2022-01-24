@@ -7,17 +7,20 @@ import Spinner from 'react-bootstrap/esm/Spinner'
 
 const Nir = (props) => {
 
+    const { setSongIndex, setCurrentSong, playSong, currentSong, isPlaying } = useContext(NirContext)
+
     let btnSpinner = null
     let btnText = 'Play'
 
 
 
-    const {  setCurrentSong, playSong, currentSong, isPlaying } = useContext(NirContext)
 
     const handleClick = async () => {
         await setCurrentSong(props)
+        await setSongIndex(props.index)
         await playSong()
     }
+
 
     if (currentSong.url === props.url && isPlaying) {
         btnSpinner = (

@@ -1,10 +1,12 @@
 import Row from "react-bootstrap/Row"
-import React, { memo } from 'react';
+import React, { memo, useContext } from 'react';
 import Nir from "./Nir";
 import Spinner from "react-bootstrap/esm/Spinner";
 
+
 const NirContainer = ({ song }) => {
 
+  
 
   let body = null
   if (song.length === 1) {
@@ -20,8 +22,8 @@ const NirContainer = ({ song }) => {
           padding: '15px 0'
         }
       }>
-        {song.map((song) => {
-          return <Nir key={song.url} name={song.name} singer={song.singer} url={song.url} image={song.image} />
+        {song.map((song, index) => {
+          return <Nir key={song.url} index={index} name={song.name} singer={song.singer} url={song.url} image={song.image} />
         })}
       </Row>
     </div>)
@@ -37,4 +39,4 @@ const NirContainer = ({ song }) => {
   )
 }
 
-export default memo(NirContainer) ;
+export default memo(NirContainer);

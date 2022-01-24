@@ -6,14 +6,16 @@ import { NirContext } from './NirLayout'
 const NirController = () => {
 
 
-    const { audioRef, currentSong, isPlaying, timer, setTimer, playSong, pauseSong } = useContext(NirContext)
+    const { handlePrev,handleNext, audioRef, currentSong, isPlaying, timer, playSong, pauseSong, } = useContext(NirContext)
     const progressRef = useRef()
     const volumeRef = useRef()
     const cdRef = useRef()
 
     // console.log(cdRef.current)
 
-  
+
+
+
 
 
 
@@ -40,6 +42,9 @@ const NirController = () => {
     }
 
 
+  
+
+
     var btnClassName = isPlaying ? 'fas fa-pause' : 'fas fa-play'
 
 
@@ -60,14 +65,14 @@ const NirController = () => {
                     <div className="btn btn-repeat">
                         <i className="fas fa-redo"></i>
                     </div>
-                    <div className="btn btn-prev">
+                    <div className="btn btn-prev" onClick={handlePrev}>
                         <i className="fas fa-step-backward"></i>
                     </div>
                     <div className="btn btn-toggle-play" onClick={handleClick}>
                         <i className={btnClassName}></i>
 
                     </div>
-                    <div className="btn btn-next">
+                    <div className="btn btn-next" onClick={handleNext}>
                         <i className="fas fa-step-forward"></i>
                     </div>
                     <div className="btn btn-random">

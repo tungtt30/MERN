@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useRef, useState } from 'react'
+import React, { memo, createContext, useEffect, useRef, useState } from 'react'
 import NirController from './NirController'
 import NirContainer from './NirContainer'
 import axios from 'axios'
@@ -14,11 +14,12 @@ const NirLayout = () => {
     const [currentSong, setCurrentSong] = useState({})
     const [timer, setTimer] = useState(0)
     const [volume, setVolume] = useState(85)
+    const [songIndex, setSongIndex] = useState(0)
     const getSongs = async () => {
         const response = await axios.get(`${apiUrl}/song`)
         setSong(response.data.song)
-
     }
+   
 
     useEffect(() => {
         getSongs()
@@ -33,10 +34,37 @@ const NirLayout = () => {
         setPlaying(false)
     }
 
-    
-    const handleEnded = () => {
-        setPlaying(false)
-        setCurrentSong({})
+    const handleNext = async () => {
+        if (songIndex === song.length - 1) {
+            await setSongIndex(0)
+            await setCurrentSong(song[0])
+
+        } else {
+
+            await setSongIndex(songIndex + 1)
+            await setCurrentSong(song[songIndex + 1])
+        }
+
+        await playSong()
+
+    }
+
+    const handlePrev = async () => {
+        if (songIndex === 0) {
+            await setSongIndex(song.length - 1)
+            await setCurrentSong(song[song.length - 1])
+        } else {
+
+            await setSongIndex(songIndex - 1)
+            await setCurrentSong(song[songIndex - 1])
+        }
+        await playSong()
+
+    }
+
+
+    const handleEnded = async () => {
+        await handleNext()
     }
 
 
@@ -44,15 +72,16 @@ const NirLayout = () => {
 
 
 
-    const nirContexData = { audioRef, song, setSong, isPlaying, setPlaying, currentSong, setCurrentSong, timer, setTimer, volume, setVolume, playSong, pauseSong }
+
+    const nirContexData = { handlePrev, handleNext,  songIndex, setSongIndex, audioRef, song, setSong, isPlaying, setPlaying, currentSong, setCurrentSong, timer, setTimer, volume, setVolume, playSong, pauseSong }
 
     return (
         <NirContext.Provider value={nirContexData}>
             <NirContainer song={song} />
             <NirController />
-            <audio ref={audioRef} onEnded={handleEnded} onTimeUpdate={() => setTimer(audioRef.current.currentTime)} src={currentSong.url} />
+            <audio ref={audioRef} onEnded={handleEnded} onTimeUpdate={() => setTimer(audioRef.current.currentTime)} src={song[songIndex].url} />
         </NirContext.Provider>
     )
 }
 
-export default NirLayout
+export default memo(NirLayout)
