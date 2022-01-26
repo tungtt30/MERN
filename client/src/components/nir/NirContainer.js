@@ -1,5 +1,5 @@
 import Row from "react-bootstrap/Row"
-import React, { memo, useContext } from 'react';
+import React, { memo } from 'react';
 import Nir from "./Nir";
 import Spinner from "react-bootstrap/esm/Spinner";
 
@@ -17,17 +17,17 @@ const NirContainer = ({ song }) => {
     )
   } else {
     body = (<div className="nir-container">
-      
-        <Row className="row-cols-1 row-cols-lg-5 row-cols-md-3 mx-auto mt-2 mb-10 dark-mode" style={
-          {
-            padding: '15px 0'
-          }
-        }>
-          {song.map((song, index) => {
-            return <Nir key={song.url} index={index} name={song.name} singer={song.singer} url={song.url} image={song.image} />
-          })}
-        </Row>
-   
+
+      <Row className="row-cols-1 row-cols-lg-5 row-cols-md-3 mx-auto mt-2 mb-10 dark-mode" style={
+        {
+          padding: '15px 0'
+        }
+      }>
+        {song.map((song, index) => {
+          return <Nir key={song.url} index={index} name={song.name} singer={song.singer} url={song.url} image={song.image} />
+        })}
+      </Row>
+
     </div>)
   }
 

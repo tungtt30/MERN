@@ -10,6 +10,8 @@ import PostContextProvider from './contexts/PostContext'
 import NirLayout from './components/nir/NirLayout'
 import NirUpload from './components/nir/NirUpload'
 import Covid from './components/covid/Covid'
+import Sam from './components/sam/Sam'
+import Weather from './components/weather/Weather'
 
 
 
@@ -27,6 +29,8 @@ function App() {
                         <ProtectedRoute exact path='/about' component={About} />
                         <ProtectedRoute exact path='/dashboard' component={Dashboard} />
                         <ProtectedRoute exact path='/covid' component={Covid} />
+                        <ProtectedRoute exact path='/sam' component={Sam} />
+                        <ProtectedRoute exact path='/weather' component={Weather} />
                     </Switch>
                 </Router>
             </PostContextProvider>

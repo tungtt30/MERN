@@ -11,9 +11,11 @@ import { useContext } from 'react'
 
 
 
+
 const NavbarMenu = () => {
 
     const { authState: { user: { username } }, logoutUser } = useContext(AuthContext)
+
 
 
     const logout = () => {
@@ -22,6 +24,8 @@ const NavbarMenu = () => {
 
 
     return (
+
+
         <Navbar expand='lg' bg='black' variant='dark' className='shadow navbar' style={
             {
                 position: 'fixed',
@@ -45,7 +49,7 @@ const NavbarMenu = () => {
             <Navbar.Collapse id='basic-navbar-nav' >
                 <Nav className='' >
                     <Nav.Link className='font-weight-bolder text-white' to='/dashboard' as={Link}>
-                        Dashboard
+                        To do list
                     </Nav.Link>
                     <Nav.Link className='font-weight-bolder text-white' to='/nir' as={Link}>
                         Mp3
@@ -53,11 +57,17 @@ const NavbarMenu = () => {
                     <Nav.Link className='font-weight-bolder text-white' to='/upload' as={Link}>
                         Upload
                     </Nav.Link>
-                    <Nav.Link className='font-weight-bolder text-white' to='/about' as={Link}>
-                        About
-                    </Nav.Link>
                     <Nav.Link className='font-weight-bolder text-white' to='/covid' as={Link}>
                         Covid-19
+                    </Nav.Link>
+                    <Nav.Link className='font-weight-bolder text-white' to='/weather' as={Link}>
+                        Weather
+                    </Nav.Link>
+                    <Nav.Link className='font-weight-bolder text-white' to='/sam' as={Link}>
+                        Sâm
+                    </Nav.Link>
+                    <Nav.Link className='font-weight-bolder text-white' to='/about' as={Link}>
+                        About
                     </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
@@ -71,6 +81,7 @@ const NavbarMenu = () => {
                 </Button>
             </Nav>
         </Navbar>
+
     )
 }
 

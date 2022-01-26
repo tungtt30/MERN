@@ -20,9 +20,6 @@ const NirController = () => {
     }
 
 
-    useEffect(() => {
-        console.log(audioRef)
-    }, [])
 
 
     useEffect(() => {
