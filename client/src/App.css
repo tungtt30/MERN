@@ -136,7 +136,7 @@ button.post-button.btn:active {
 
 .dashboard {
   padding: 10px;
-  background-color: rgb(27, 26, 29);
+  background-color: rgb(25, 16, 43);
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -148,14 +148,16 @@ button.post-button.btn:active {
 
 /* NIR BACKGROUND */
 .dark-mode {
-  background: rgba(2, 0, 22, 0.863);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
+    url(../src/assets/cool.jpg)  center/cover;
 }
+
 
 /* CD */
 .cd {
   display: flex;
 
-  width: 85px;
+  width: 90px;
 }
 
 .cd-thumb {
@@ -197,7 +199,7 @@ button.post-button.btn:active {
 }
 
 .control .btn.active {
-  color: var(--primary-color);
+  color: rgb(115, 35, 243);
 }
 
 .control .btn-toggle-play {
@@ -228,7 +230,7 @@ button.post-button.btn:active {
   appearance: none;
   width: 12px;
   height: 6px;
-  background-color: #000000;
+  background-color: #9616ff;
   cursor: pointer;
   border-radius: 1px;
 }
@@ -246,76 +248,10 @@ button.post-button.btn:active {
 .progress::-webkit-slider-thumb {
   width: 12px;
   height: 6px;
-  background-color: #000000;
+  background-color: #a915ff;
   cursor: pointer;
   border-radius: 1px;
 }
-
-/* PLAYLIST */
-.playlist {
-  width: 100%;
-  display: inline-flex;
-  flex-wrap: wrap;
-  padding: 30px;
-  justify-content: space-between;
-}
-
-.song {
-  display: flex;
-  max-width: 400px;
-  width: 100%;
-  align-items: center;
-  margin-bottom: 12px;
-  background-color: #fff;
-  padding: 8px 16px;
-  border-radius: 5px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-}
-
-.song.active {
-  background-color: var(--primary-color);
-}
-
-.song:active {
-  opacity: 0.8;
-}
-
-.song.active .option,
-.song.active .author,
-.song.active .title {
-  color: #fff;
-}
-
-.song .thumb {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-size: cover;
-  margin: 0 8px;
-}
-
-.song .body {
-  flex: 1;
-  padding: 0 16px;
-}
-
-.song .title {
-  font-size: 18px;
-  color: var(--text-color);
-}
-
-.song .author {
-  font-size: 12px;
-  color: #999;
-}
-
-.song .option {
-  padding: 16px 8px;
-  color: #999;
-  font-size: 18px;
-}
-
-/* -------------*/
 
 .nir-container {
   margin-bottom: 100px;

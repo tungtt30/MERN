@@ -6,17 +6,23 @@ import { NirContext } from './NirLayout'
 const NirController = () => {
 
 
-    const { handlePrev,handleNext, audioRef, currentSong, isPlaying, timer, playSong, pauseSong, } = useContext(NirContext)
+    const { isRepeat, setRepeat, handlePrev, handleNext, audioRef, currentSong, isPlaying, timer, playSong, pauseSong, } = useContext(NirContext)
     const progressRef = useRef()
     const volumeRef = useRef()
     const cdRef = useRef()
 
-    // console.log(cdRef.current)
+    let currentTime = 0
+    let duration = 0
+
+    if (currentSong.name) {
+        currentTime = Math.floor(audioRef.current.currentTime)
+        duration = Math.floor(audioRef.current.duration)
+    }
 
 
-
-
-
+    useEffect(() => {
+        console.log(audioRef)
+    }, [])
 
 
     useEffect(() => {
@@ -40,13 +46,22 @@ const NirController = () => {
             playSong()
         }
     }
+    const handleRepeat = () => {
+        if (isRepeat) {
+            setRepeat(false)
+        } else {
+            setRepeat(true)
+        }
+    }
+    const handleRandom = () => {
+        alert('Chức năng này chưa làm @@')
+    }
 
 
-  
 
 
     var btnClassName = isPlaying ? 'fas fa-pause' : 'fas fa-play'
-
+    var repeatClassName = isRepeat ? 'btn btn-repeat active' : 'btn btn-repeat'
 
 
     return (
@@ -58,11 +73,10 @@ const NirController = () => {
                 </header>
                 <div className="cd" >
                     <div className="cd-thumb" ref={cdRef} style={{ backgroundImage: `url(${currentSong.image})` }}>
-
                     </div>
                 </div>
                 <div className="control">
-                    <div className="btn btn-repeat">
+                    <div className={repeatClassName} onClick={handleRepeat}>
                         <i className="fas fa-redo"></i>
                     </div>
                     <div className="btn btn-prev" onClick={handlePrev}>
@@ -70,16 +84,16 @@ const NirController = () => {
                     </div>
                     <div className="btn btn-toggle-play" onClick={handleClick}>
                         <i className={btnClassName}></i>
-
                     </div>
                     <div className="btn btn-next" onClick={handleNext}>
                         <i className="fas fa-step-forward"></i>
                     </div>
-                    <div className="btn btn-random">
+                    <div className="btn btn-random" onClick={handleRandom}>
                         <i className="fas fa-random"></i>
                     </div>
                 </div>
                 <div>
+                    <span>{currentTime}  /  {duration}</span>
                     <input ref={progressRef} onChange={handleChange} defaultValue={1} className="progress" type="range" />
                     <input ref={volumeRef} className="volume" defaultValue={100} onInput={handleInput} type="range" />
                 </div>

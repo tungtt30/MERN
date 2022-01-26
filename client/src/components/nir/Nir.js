@@ -1,6 +1,5 @@
 import React, { useContext, memo } from 'react'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import Col from "react-bootstrap/Col"
 import { NirContext } from "./NirLayout"
 import Spinner from 'react-bootstrap/esm/Spinner'
@@ -50,16 +49,12 @@ const Nir = (props) => {
     return (
         <>
             <Col>
-                <Card className='mb-5 cardClass' >
+                <Card className='mb-5 cardClass' style={{ cursor: 'pointer' }} onClick={handleClick}>
                     <Card.Img variant='top' className='card-image' src={props.image} />
                     <Card.Body>
-                        <Card.Title>{props.name}</Card.Title>
+                        <Card.Title>{props.name} <span style={{ color: 'red' }}>{btnSpinner}</span></Card.Title>
                         <Card.Text>{props.singer}</Card.Text>
                     </Card.Body>
-                    <Button variant='outline-danger' onClick={handleClick}>
-                        {btnSpinner}
-                        {btnText}
-                    </Button>
                 </Card>
             </Col>
 

@@ -15,6 +15,7 @@ const NirLayout = () => {
     const [timer, setTimer] = useState(0)
     const [volume, setVolume] = useState(85)
     const [songIndex, setSongIndex] = useState(0)
+    const [isRepeat, setRepeat] = useState(false)
     const getSongs = async () => {
         const response = await axios.get(`${apiUrl}/song`)
         setSong(response.data.song)
@@ -64,7 +65,11 @@ const NirLayout = () => {
 
 
     const handleEnded = async () => {
-        await handleNext()
+        if (isRepeat) {
+            await playSong()
+        } else {
+            await handleNext()
+        }
     }
 
 
@@ -73,7 +78,7 @@ const NirLayout = () => {
 
 
 
-    const nirContexData = { handlePrev, handleNext, songIndex, setSongIndex, audioRef, song, setSong, isPlaying, setPlaying, currentSong, setCurrentSong, timer, setTimer, volume, setVolume, playSong, pauseSong }
+    const nirContexData = { setRepeat, isRepeat, handlePrev, handleNext, songIndex, setSongIndex, audioRef, song, setSong, isPlaying, setPlaying, currentSong, setCurrentSong, timer, setTimer, volume, setVolume, playSong, pauseSong }
 
     return (
         <NirContext.Provider value={nirContexData}>
