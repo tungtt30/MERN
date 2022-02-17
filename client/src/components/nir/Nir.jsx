@@ -47,12 +47,11 @@ const Nir = (props) => {
       <Col>
         <Card
           className="mb-5 cardClass"
-          style={{ cursor: "pointer" }}
           onClick={handleClick}
         >
           <Card.Img variant="top" className="card-image" src={props.image} />
-          <Card.Body>
-            <Card.Title>
+          <Card.Body className="nir-body">
+            <Card.Title className="nir-title">
               {props.name} <span style={{ color: "red" }}>{btnSpinner}</span>
             </Card.Title>
             <Card.Text>{props.singer}</Card.Text>
