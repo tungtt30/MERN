@@ -6,7 +6,7 @@ import axios from 'axios';
 const Weather = () => {
   const [data, setData] = useState({})
   const [value, setValue] = useState('ha noi')
-  let apiURL = `http://api.weatherapi.com/v1/current.json?q=${value}&key=559d7d2674004eec987164748220101`
+  let apiURL = `https://api.weatherapi.com/v1/current.json?q=${value}&key=559d7d2674004eec987164748220101`
 
   const fet = async () => {
     const data = await axios.get(apiURL)
