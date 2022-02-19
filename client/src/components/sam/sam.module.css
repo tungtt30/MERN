@@ -1,0 +1,32 @@
+.bg {
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+}
+.table-container {
+  overflow: hidden;
+  padding-top: 100px;
+  color: rgb(2, 22, 41);
+
+}
+
+.table {
+  position: relative;
+  left: 15px;
+  width: 380px;
+}
+.input_white {
+    border-color: rgb(2, 16, 29);
+}
+
+.tHead {
+    margin: 5px;
+    
+}
+
+.PlayerName {
+    margin: 5px
+}
+
+.tBody {
+    margin: 5px;
+}
