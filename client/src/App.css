@@ -1,0 +1,289 @@
+.landing {
+  position: relative;
+  background: url("./assets/landing.jpg") no-repeat center center/cover;
+  height: 100vh;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+
+.landing-inner {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.landing-inner form {
+  width: 30%;
+}
+
+.landing-inner h1,
+.landing-inner h4,
+.landing-inner p {
+  color: white;
+}
+
+.spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* Post button */
+.post-button {
+  padding-top: 0;
+  background: transparent;
+  border: none;
+}
+
+.post-button:hover {
+  background: transparent;
+}
+
+a.post-button.btn:focus,
+a.post-button.btn:active {
+  outline: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+button.post-button.btn:focus,
+button.post-button.btn:active {
+  outline: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Floating add button */
+.btn-floating {
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+  background: transparent;
+  border: none;
+}
+
+.btn-floating:hover {
+  background: transparent;
+}
+
+.btn-floating:focus,
+.btn-floating:active {
+  outline: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Add new post tooltip */
+.tooltip {
+  background: transparent;
+}
+
+.tooltip .arrow::before {
+  border-left-color: #78c2ad;
+}
+
+.tooltip-inner {
+  background: #78c2ad;
+}
+
+/* Post border thicker */
+.border-success,
+.border-warning,
+.border-danger {
+  border-width: 2px;
+}
+
+/* Post title */
+.post-title {
+  margin-bottom: 0.5rem;
+}
+
+/* nir css */
+
+.cardClass {
+  cursor: pointer;
+}
+
+.cardClass:hover {
+  background-color: #d6d6d6;
+  color: #9616ff;
+}
+
+@keyframes opa {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.nir-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nir-title:hover {
+  white-space: normal;
+}
+
+
+.player .icon-pause {
+  display: none;
+}
+
+.player.playing .icon-pause {
+  display: inline-block;
+}
+
+.player.playing .icon-play {
+  display: none;
+}
+
+.dashboard {
+  padding: 10px;
+  background-color: rgb(25, 16, 43);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 1px solid #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* NIR BACKGROUND */
+.dark-mode {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
+    url(../src/assets/cool.jpg)  center/cover;
+}
+
+
+/* CD */
+.cd {
+  display: flex;
+
+  width: 90px;
+}
+
+.cd-thumb {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  background-size: cover;
+  margin: auto;
+}
+
+/* CONTROL */
+.nir-controller-singer {
+  color: #fff;
+}
+.nir-controller-song {
+  color: #fff;
+}
+
+.control-father {
+  display: flex;
+  flex-direction: column;
+  right: 20px;
+  position: relative;
+}
+.control {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-around;
+  max-width: 300px;
+  padding: 14px 0 17px 0;
+}
+
+.control .btn {
+  color: rgb(255, 255, 255);
+  padding: 18px;
+  font-size: 18px;
+}
+
+.control .btn.active {
+  color: rgb(115, 35, 243);
+}
+
+.control .btn-toggle-play {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+.volume {
+  width: 100px;
+  -webkit-appearance: none;
+  height: 6px;
+  background: #ffffff;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 6px;
+  background-color: #9616ff;
+  cursor: pointer;
+  border-radius: 1px;
+}
+
+.progress {
+  width: 300px;
+  height: 6px;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 4px;
+}
+
+.progress::-webkit-slider-thumb {
+  width: 12px;
+  height: 6px;
+  background-color: #a915ff;
+  cursor: pointer;
+  border-radius: 1px;
+}
+
+.nir-container {
+  margin-bottom: 100px;
+  margin-top: 55px;
+}
+
+/* card */
+.card-image {
+  height: 100px;
+  object-fit: cover;
+  text-align: center;
+}
+
+.NirForm {
+  color: white;
+}

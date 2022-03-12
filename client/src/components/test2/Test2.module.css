@@ -1,0 +1,55 @@
+.h1 {
+  margin-top: 60px;
+  color: blueviolet;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.overlay {
+  max-height: 100px;
+  margin: 0 auto;
+  max-width: 1000px;
+  overflow: hidden;
+  padding: 50px;
+  position: fixed;
+  color: rgb(255, 255, 255);
+  font-family: "Lato";
+  text-align: center;
+  z-index: 0;
+  border-radius: 10px;
+  bottom: 20px;
+}
+
+.overlay::before {
+  background-color: rgb(170, 170, 170);
+  content: "";
+  filter: blur(40px);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.progress {
+  border: none;
+  width: 400px;
+  height: 6px;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 4px;
+}
+.progress::-webkit-slider-thumb {
+  width: 12px;
+  height: 6px;
+  background-color: #a915ff;
+  cursor: pointer;
+  border-radius: 1px;
+}
